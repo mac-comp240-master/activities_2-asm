@@ -3,17 +3,17 @@
 	.globl	plus
 	.type	plus, @function
 plus:
-.LFB39:
+.LFB20:
 	.cfi_startproc
 	leaq	(%rdi,%rsi), %rax
 	ret
 	.cfi_endproc
-.LFE39:
+.LFE20:
 	.size	plus, .-plus
 	.globl	sumstore
 	.type	sumstore, @function
 sumstore:
-.LFB40:
+.LFB21:
 	.cfi_startproc
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
@@ -25,7 +25,7 @@ sumstore:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE40:
+.LFE21:
 	.size	sumstore, .-sumstore
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
@@ -34,7 +34,7 @@ sumstore:
 	.globl	main
 	.type	main, @function
 main:
-.LFB41:
+.LFB22:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -59,13 +59,12 @@ main:
 	movq	%rbp, %rsi
 	movq	%rbx, %rdi
 	call	sumstore
-	movq	8(%rsp), %r8
-	movq	%rbp, %rcx
-	movq	%rbx, %rdx
-	movl	$.LC0, %esi
-	movl	$1, %edi
+	movq	8(%rsp), %rcx
+	movq	%rbp, %rdx
+	movq	%rbx, %rsi
+	movl	$.LC0, %edi
 	movl	$0, %eax
-	call	__printf_chk
+	call	printf
 	movl	$0, %eax
 	addq	$24, %rsp
 	.cfi_def_cfa_offset 24
@@ -75,7 +74,7 @@ main:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE41:
+.LFE22:
 	.size	main, .-main
-	.ident	"GCC: (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4"
+	.ident	"GCC: (GNU) 8.3.1 20190311 (Red Hat 8.3.1-3)"
 	.section	.note.GNU-stack,"",@progbits

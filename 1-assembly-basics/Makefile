@@ -6,22 +6,22 @@ CINC =
 F64 =-m64
 
 
-.SUFFIXES: .c .64s .64o .64d 
+.SUFFIXES: .c .s .o .d 
 
 
-.c.64s:
-	$(CC) $(OFLAGS) $(CINC) -S $(F64) $*.c -o $*.64s
+.c.s:
+	$(CC) $(OFLAGS) $(CINC) -S $(F64) $*.c -o $*.s
 
-.c.64d:
+.c.d:
 	$(CC) $(CFLAGS) $(CINC) $(F64) $*.c -o $*
-	objdump -d $* > $*.64d
+	objdump -d $* > $*.d
 	rm -f $*
 
-files:	sum.64s	sum.64d	sum64 swap.64s 
+files:	sum.s	sum.d	sum swap.s 
 
 
-sum64: sum.c
-	$(CC) $(CFLAGS) $(CINC) $(F64) sum.c -o sum64
+sum: sum.c
+	$(CC) $(CFLAGS) $(CINC) $(F64) sum.c -o sum
 
 clean:
-	rm -f *~ *.64s *.64d sum64
+	rm -f *~ *.s *.d sum *.s *.64d sum64

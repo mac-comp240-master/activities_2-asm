@@ -13,5 +13,5 @@ swap:
 	.cfi_endproc
 .LFE0:
 	.size	swap, .-swap
-	.ident	"GCC: (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4"
+	.ident	"GCC: (GNU) 8.3.1 20190311 (Red Hat 8.3.1-3)"
 	.section	.note.GNU-stack,"",@progbits

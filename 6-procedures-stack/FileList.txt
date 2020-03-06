@@ -1,11 +1,11 @@
 Extensions:
-	.64s: x86-64 assembly code
-	.64s: x86-64 disassembly
+	.s: x86-64 assembly code
+	.s: x86-64 disassembly
 
 FILES
 
 incr.c
-incr.64s
+incr.s
 	Procedure examples
 
 main.c
@@ -14,5 +14,5 @@ mstore-exe.64d
 	Procedure examples
 
 recurse.c
-recurse.64s
+recurse.s
 	Recursive procedure example
