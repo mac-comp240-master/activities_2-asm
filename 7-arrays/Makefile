@@ -28,8 +28,6 @@ array_indexing: array_indexing.c
 2D_array: 2D_array.c
 	$(CC) $(CFLAGS) $(CINC) -o 2D_array 2D_array.c
 
-dynamic_alloc: dynamic_alloc.c
-	$(CC) $(CFLAGS) $(CINC) -o dynamic_alloc dynamic_alloc.c
 	
 clean:
 	rm -f *.s array_indexing 2D_array
