@@ -64,26 +64,27 @@ Pointer addition like this is the most common use of arithmetic on pointers in C
 
 There is a second version of the *sum_p* function called *sum_p_no_printf*. Add the necessary line to correctly compute the sum.
 
-Next, let's examine the assembly, in the file called called `array_indexing.64s`, that will be created from the Makefile once you complete this task successfully. It should look something like the following, with our added comments for clarity.
+Next, let's examine the assembly, in the file called called `array_indexing.s`, that will be created from the Makefile once you complete this task successfully. It should look something like the following, with our added comments for clarity about the looping. You fill in what is not commented yet.
 
 %rdi has the pointer to the zeroth element of the array.
 
 ```
 sum_p_no_printf:
-.LFB24:
-	.cfi_startproc
-	movl	$0, %edx     # index i is in edx; init to 0
-	movl	$0, %eax     # sum is in eax; init to 0
-	jmp	.L6              # slightly different for loop structure
-.L7:          # rdi is initially A[0]
-	addl	(%rdi), %eax  # add value at address in mem where rdi points to sum
-	addq	$4, %rdi      # increment rdi by 4 bytes to the next int
-	addl	$1, %edx      # increment the value for i by 1
-.L6:                      #start loop here
-	cmpl	$9, %edx      # compare i to N-1
-	jle	.L7               # loop back as long as i <= 9
-	rep ret
-	.cfi_endproc
+.LFB8:
+        .cfi_startproc
+        movl    $0, %edx   # index i is in edx; init to 0
+        movl    $0, %eax   # sum is in eax; init to 0
+.L7:
+        cmpl    $9, %edx      # for loop comparison of %edx to 9
+        jg      .L9           #  when edx is > 9, then jump past label .L9 
+		                      #  causes return from function
+        addl    (%rdi), %eax
+        addq    $4, %rdi
+        addl    $1, %edx
+        jmp     .L7           # jump back to top of loop
+.L9:
+        ret
+        .cfi_endproc
 ```
 
 ## Task 2: Sum elements using array indexing
@@ -111,4 +112,25 @@ The Makefile also compiles your code using  the -Og  and -S flags along with -o 
 
 As an alternative to copying the assembly file to make comments, you could copy the assembly into a commented region of the C code. This way you have the C code and its assembly right next to each other.
 
-**Consider this:** which version of the assembly *might* be slightly faster, especially if N was large?
+## Task 3: 2D array storage
+
+The Makefile has a way to also build the file 2D_array.c. Open it and remove the # from the files directive line and save the Makefile. When you make, it will be able to compile this 2D array example.
+
+Study the file `2D_array.c`. Your main task is to update the function called `set_diag_p`. As you examine this function, make sure you are very clear about what the values M and N represent. Make a comment at the beginning of this function to state what M and N are, so that you can
+
+Notice that this line is to show you how the very last element of the array can be accessed using pointer arithmetic:
+
+		int * last = Arow + (M-1)*N + (N-1);   // final element in 2D array
+
+Make a comment here to describe just why last points to the last element in the 2D array.
+
+To complete this function, you may also want to see how it was done with the square bracket notation method. Your goal is to set the diagonal elements to the integer 2.
+
+### Why work out the pointer arithmetic method?
+
+Struggling to get the correct method for working down to an element in an array, signified by how many integers across each row and how many columns over that you need to go in a desired row makes it easier to see how the compiler has to do a similar action, counting bytes, in a matrix stored in row-major order (this is how C does it; other languages could be different).
+
+### Study the assembly
+
+After you have the `set_diag_p` working, you can look at the assembly for both functions, `set_diag` and `set_diag_p`. It is useful for you to be able to understand clearly what the assembly for these functions is accomplishing. In this case, there is more than one way to complete `set_diag_p`, which might even change the assembly. Some of it may be perplexing. The assembly for `set_diag`, however, should be straightforward, if you can work out how the looping is working.
+
