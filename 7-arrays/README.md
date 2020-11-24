@@ -50,7 +50,7 @@ The pointer called `next` above is incremented differently than you might imagin
 
 See section 3.8.2 of Bryant and O’Halloran text:  **"C allows arithmetic on pointers, where the computed value is scaled according to the size of the data type referenced by the pointer."**
 
-This is very commonly used when looping through elements in an array. We start by having a temporary pointer to an int, called next, pointing to the zeroth element of the array. Each time next is incremented by one in the for loop, its value is changed by the size of an int,  so that it now points to the next element in the array. You can see this by observinf the printed pointer values, which increase by 4 bytes each time through the loop.
+This is very commonly used when looping through elements in an array. We start by having a temporary pointer to an int, called next, pointing to the zeroth element of the array. Each time next is incremented by one in the for loop, its value is changed by the size of an int,  so that it now points to the next element in the array. You can see this by observing the printed pointer values, which increase by 4 bytes each time through the loop.
 
 As another case, this expression:
 

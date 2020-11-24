@@ -42,7 +42,7 @@ In this case, `%rdi` has xp, which is a pointer, which means it is an **address 
 
 
 
-Let’s examine each line carefully in the swap function. Write comments at the end of each line of  the lines for the swap function in your `commented_swap.64.s` file to indicate what each line is doing.  Concentrate on the consecutive move instructions, which are the ‘body’ of the code. You can refer to an example in your book in section 3.4.3, including the blue box about C pointers.
+Let’s examine each line carefully in the swap function. Write comments at the end of each line of  the lines for the swap function in your `commented_swap.s` file to indicate what each line is doing.  Concentrate on the consecutive move instructions, which are the ‘body’ of the code. You can refer to an example in your book in section 3.4.3, including the blue box about C pointers.
 
 
 
@@ -50,44 +50,14 @@ Let’s examine each line carefully in the swap function. Write comments at the 
 
 Now copy `swap.c` to `swap_int.c`.  Edit the code to change ‘long’ to ‘int’. Add `swap_int.s` to the files: line of the Makefile and you should be able to make it.
 
+### <img src="../img/emblem-important.svg" alt="Important" width="20" align="bottom"> Get file from the server
+
+When you have run make, you should see that you have a new `swap_int.s` file by doing this in the terminal:
+
+    ls
+
+Now what you need to do is to get the file from the remote server where you are logged in back to your laptop's directory. In the left-hand file explorer of VS code, *Right-click on the 2-close-examination directory and choose Sync Remote->Local*. You should see the file `swap_int.s` show up in the directory.
+
 Look at the difference between `swap.s` and `swap_int.s`.  Make sure that you understand and can explain these differences (talk it over with your neighbor in class).
 
 
-<!--
-### Getting started
-There are various things you can do to quickly and efficiently configure your Codio Box to your exact requirements. 
-
-### GUI Applications and the Virtual Desktop 
-The Virtual Desktop allows you auto develop GUI based applications using any programming language. You can install a Virtual Desktop in your Box. You can then start the desktop and view it within the Codio IDE or in a new browser tab.
-
-[Virtual Desktop documentation](https://codio.com/docs/ide/boxes/installsw/gui/)
-
-
-### Command line access and the Terminal window
-All Codio Boxes provide sudo level privileges to the underlying Ubuntu server. This means you can install and configure any component you like. You access the terminal from the **Tools->Terminal** menu item.
-
-### Debugger
-The Codio IDE comes with a powerful visual debugger. Currently we support Python, Java, C, C++ and NodeJS. Other languages can be added on request.
-
-[Debugger documentation](https://codio.com/docs/ide/features/debugging/)
-
-
-### Content authoring and assessments
-Codio comes with a very powerful content authoring tool, Codio Guides. Guides is also where you create all forms of auto-graded assessments. 
-
-- [Guides documentation](https://codio.com/docs/content/authoring/overview/)
-- [Assessments documentation](https://codio.com/docs/content/authoring/assessments/)
-
-### Templating Box configurations and projects
-Codio offers two very powerful templating options so you can create new projects from those templates with just a couple of clicks. **Stacks** allow you to create snapshots of the Box’s underlying software configuration. You can then create new projects from a Stack avoiding having to configure anew each time you start a new project. **Starter Packs** allow you to template an entire project, including workspace code.
-
-- [Stacks documentation](https://codio.com/docs/project/stacks/)
-- [Starter Packs documentation](https://codio.com/docs/project/packs/)
-
-### Install software
-You can always install software onto your Box using the command line. However, Codio offers a shortcut for commonly installed components that can be accessed from the **Tools->Install Software** menu.
-
-We can easily add new items to the Install Software screen, so feel free to submit requests.
-
-[Install Software documentation](https://codio.com/docs/ide/boxes/installsw/box-parts/)
--->

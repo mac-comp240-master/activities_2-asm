@@ -15,7 +15,7 @@ You can compile everything again as follows. The Makefile does quite a bit- we w
 
 Open up the Makefile and look at it.  There are many new things to notice about it. Here are a few:
 
-* makefiles can contain definitions, such as in line 2, where CC is defined to be the same as gcc.  The later in the Makefile, the tag $(CC)  is replaced by gcc before the compilation begins for a target. This is true for every definition you see at the top of the file. By convention these are all capital letters.
+* makefiles can contain definitions, such as in line 2, where CC is defined to be the same as gcc.  Then later in the Makefile, the tag $(CC)  is replaced by gcc before the compilation begins for a target. This is true for every definition you see at the top of the file. By convention these are all capital letters.
 
 * makefiles can contain specially coded targets for C code files. In this makefile, one of them looks like this on a line by itself:
 
