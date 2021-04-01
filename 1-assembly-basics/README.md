@@ -2,6 +2,10 @@
 
 ## Examining assembly language code
 
+In this activity, you will see your first example of compiling C source code into assembly. Create a new plain text file in this repository and take notes as you observe the different features discussed below.
+
+Please also try changing and recompiling the C source code, to observe how the assembly changes in response!
+
 Let’s start with the file called `sum.c`.  Look at the code for `sum.c` and determine what is new to you that you haven’t seen before (or that perhaps you vaguely recall- this is fine, it happens when tackling something new).  You may want to explore those new or vaguely familiar features of C, since they will show up in other examples and you will likely want to use them yourself. 
 
 There are some files already made from the Makefile included in this directory. One is the assembly language file made from sum.c, which is called sum.s.
