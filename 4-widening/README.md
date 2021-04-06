@@ -34,6 +34,8 @@ Can you think of why the operations ending in l (eg movzbl) were sufficient and 
 
 Try devising your own new functions that do some arithmetic on variables of different types that need widening. Observe the assembly to see if you can understand what it is doing.
 
+[Note For the MSCS1 Server] Remember that because you are working on a remote machine, the result of your compilation lives on that server and not your local computer. Don't forget to sync from the remote to local machine in order to see your assembly code!
+
 ## In case you were wondering
 
 In answer to this question: What operations are performing the widenings in the assembly code for arith_u? Why is each of these used-- what is the difference between them?
