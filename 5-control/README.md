@@ -2,7 +2,7 @@
 
 ## Making the assembly code
 
-The Makefile for this example is a bit more complicated than you have used recently. it will make a single version of assembly for the original `gt.c` file, but three versions of assembly for the `control.c` file, which we will observe later.
+The Makefile for this example is a bit more complicated than you have used recently. it will make a single version of assembly for the original `gt.c` file, but two versions of assembly for the `control.c` file, which we will observe later.
 
 Run this to see the four assembly files get created:
 
