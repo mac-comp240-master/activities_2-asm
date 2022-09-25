@@ -4,9 +4,9 @@ In this activity, you will see your first example of compiling C source code int
 
 Please also try changing and recompiling the C source code, to observe how the assembly changes in response!
 
-Let’s start with the file called `sum.c`.  Look at the code for `sum.c` and determine what is new to you or that you only vaguely recall.  You may want to explore those new or vaguely familiar features of C, since they will show up in other examples. 
+Let’s start with the file called `swap.c`.  Look at the code for `swap.c` and determine what is new to you or that you only vaguely recall.  You may want to explore those new or vaguely familiar features of C, since they will show up in other examples. 
 
-There are some files already made from the Makefile included in this directory. One is the assembly language file made from `sum.c`, which is called `sum.s`.
+There are some files already made from the Makefile included in this directory. One is the assembly language file made from `swap.c`, which is called `swap.s`.
 
 You can compile everything again as follows. The Makefile does quite a bit—we will review that below.
 
@@ -14,6 +14,10 @@ You can compile everything again as follows. The Makefile does quite a bit—we 
 	make files
 
 (aside: **_files_** is a kind of unfortunate word choice for a target in this makefile; hope it isn’t too confusing. It is meant to indicate that we are making intermediate files as part of the entire C compiling process.)
+
+## VS Code Users
+
+There is an extension in the marketplace for viewing assembly files. Got to the marketplace by choosing it along the left side (below the bug icon), and search for **assembly**. Then pick the popular one for x86 and x86_64.
 
 ## Introduction to Reading Assembly
 
@@ -31,23 +35,27 @@ This code is the set of 64-bit "assembly" version of the instructions correspond
 
 Note that `%rax` and other variables beginning with `%r` in x86-64 assembly refer to the registers on the machine.  We will see details of each of these later.
 
-Relate this small section of assembly code to the code for the swap() function in the original C code file. In your text file, match parts of the C code to the instructions in assembly. 
+As a way to understand the code, you will add comments to a copy of `swap.s`.  You should **do this by making a duplicate** of the `swap.s` file called `commented_swap.s`, copying the contents of `swap.s` into it, and editing that file. (You should use a copy so you don’t overwrite your work when using make.) Examine each line carefully and write comments to indicate what each line is doing. Concentrate on the consecutive move instructions, which are the ‘body’ of the code. You can refer to an example in your book in section 3.4.3, including the blue box about C pointers.
+
+Be sure you have a reference and are familiar with what the names of the registers are in 64-bit assembly code (as produced by our compiler, gcc).  These are listed in Figure 3.2 of your textbook and are given in the slides for class. Figure 3.2 of your textbook also has a simpler example called exchange, will likely be helpful if you are confused about how this code works.
+
+### Commenting Assembly Code
+
+For the linux GNU assembler, comments in the assembly code can be written like old-style C comments like this:
+
+    /* a comment */
 
 ### Parameters Go Into Registers
 
-    The parameters to a function such as swap automatically get placed in particular registers. By convention, register %rdi holds the first parameter, and register %rsi holds the second parameter. We'll learn the conventions for more parameters later.
+The parameters to a function such as swap automatically get placed in particular registers. By convention, register %rdi holds the first parameter, and register %rsi holds the second parameter. We'll learn the conventions for more parameters later.
 
-## More complicated example (just to pique your interest for now)
+In this case, `%rdi` has xp, a pointer, which means it is an **address in memory**. `%rsi` has yp, also a pointer, thus holds a memory address.
 
-The assembly code for `sum.s` corresponds to `sum.c`. Look at the section of the `sum.s` file after the label:
+## Try `int` Values
 
-    sumstore:
+Now copy `swap.c` to a new file, `swap_int.c`.  Edit the code to change ‘long’ to ‘int’. Add `swap_int.s` to the `files:` line of the Makefile and you should be able to make it.
 
-Note how in this assembly code file, you can find each function and compare it to the function with the same name in `sum.c`.
-
-## VS Code Users
-
-There is an extension in the marketplace for viewing assembly files. Got to the marketplace by choosing it along the left side (below the bug icon), and search for **assembly**. Then pick the popular one for x86 and x86_64.
+Look at the difference between `swap.s` and `swap_int.s`.  Make sure that you understand and can explain these differences (talk it over with your table in class).
 
 ## Makefile: What's Going On?
 
