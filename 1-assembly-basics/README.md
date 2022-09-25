@@ -27,7 +27,7 @@ The assembly code for `swap.s` corresponds to `swap.c`. Look at the section of t
 
     .LFB0:
 
-    and beforethe occurrence of this line:
+    and before the occurrence of this line:
 
     .LFE0:
 
