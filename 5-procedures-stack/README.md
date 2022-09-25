@@ -1,4 +1,4 @@
-# Part 1: Procedure Control Flow
+# Procedure Cals and the Runtime Stack
 
 For these activities there are two files that contain functions that call each other. This is not likely how you would best organize your code, but rather used to illustrate a point about the compiler and how code gets assembled.
 
@@ -25,19 +25,13 @@ Try running make and you will see these steps as the following in the terminal, 
     
 There is also an assembly file called incr.64s that gets made- we will look at that later in this activity. The recurse.c example and its corresponding assembly file are option for you to study if you wish.
 
-Now examine the file called mstore-exe.64d, which now shows us assembly for our program. The important part to look at is at approximately line 122, where the code for function multstore is, and line 130, where the code for function mult2 is. These dump files enable us to observe how the executable progam file gets put together from these individual .c files.
+## Part 1: Procedure Control Flow
 
-With mstore-exe.64d in an editor window, type this at the terminal:
+Examine the file called mstore-exe.64d, which shows us assembly for our program. The important part to look at is at approximately the line where the code for function multstore is and the line where the code for function mult2 is. These dump files enable us to observe how the executable progam file gets put together from these individual .c files.
 
-    cat mstore.c
+Talk with your table about how this objecct dump compares to the C source. Document your observations in a text file.
 
-Note that this shows you the file in a different way to looking at it in a tab in codio. Note that in this simple code, mulstore is calling mult2.
-
-Note how the mstore-exe.64d file contains the assembly for multstore, which has a callq in it that transfers control to the mult2 procedure, which matches the C code for multstore in mstore.c.
-
-Your instructor will explain the rest of this code with the presentation slides.
-
-# Part 2: Procedure argument handling
+## Part 2: Procedure Argument Handling
 
 Make a new file called arguments.c.  Start with a function like this:
 
@@ -59,7 +53,7 @@ Now add your arguments.64s target assembly file to the Makefile on the ‘files�
 
     files:	incr.64s mstore-exe.64d recurse.64s arguments.64s
 
-Note that you can simply type ‘make’ at the command line and the assembly for your new file should get made.  This is because the target called ‘files’ is the first target in the makefile.
+Note that you can simply type ‘make’ at the command line and the assembly for your new file should get made. This is because the target called ‘files’ is the first target in the makefile.
 
 Observe the assembly code in arguments.64s for this function called proc. Carefully trace where each of the arguments is stored by looking at the 4 add operations and their respective operands.
 
