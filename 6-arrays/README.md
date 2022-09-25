@@ -1,12 +1,8 @@
-# ASM Activity 7: Arrays
-
-## You will complete the code
+# ASM: Arrays
 
 For this part, we are primarily back to working with C code that will create an executable that we can run.
 
-A file called array_indexing.c is started for you. It has starter code that:
-
-has a main that declares an array of ints called A of length N, where we use a #define statement to initially set N to 10 (look up C #define directive to learn how it works if this is still unfamiliar).
+A file called `array_indexing.c` is started for you. It has a main that declares an array of ints called A of length N, where we use a #define statement to initially set N to 10 (look up C #define directive to learn how it works if this is still unfamiliar).
 
 The Makefile will not build an executable that passes its assert tests until you complete the following tasks.
 
@@ -16,7 +12,7 @@ You can make it and execute it to see how the pointers are incrementing in the c
 
 Here is our first task for this code:
 
-1. Write a function sum_p that:
+1. Write a function `sum_p` that:
     a. Takes a pointer to an int called arr_ptr. This is assumed to be the initial, or zeroth element in the array.
     b. Uses a for loop that increases a pointer to access every element and add its value to a variable called sum.
     c. Returns the sum variable.
