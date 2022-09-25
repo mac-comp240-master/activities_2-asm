@@ -24,10 +24,6 @@ Now let's examine an example using unsigned data variables, found in `arith_u`. 
 
 What operations are performing the widenings in the assembly code for `arith_u`? Why is each of these used—what is the difference between them? Can you think of why the operations ending in l (eg movzbl) were sufficient and therefore chosen by the compiler? Write your answers in a text file.
 
-## Task 3: Experiment
-
-Try devising your own new functions that do arithmetic on variables of different types that need widening. Observe the assembly to see if you can understand what it is doing.
-
 ### Solution
 
 In answer to this question: What operations are performing the widenings in the assembly code for arith_u? Why is each of these used—what is the difference between them?
@@ -41,5 +37,9 @@ In answer to this question: Can you think of why the operations ending in l (eg 
     This is only the case for the unsigned widenings to 64 bits, which use movzxl instructions instead of movzxq. When widening to less than 32 bits, say from 8 to 16, the zeroing out of the upper bits is not guaranteed. So in these cases the expected movzxx command would need to be used and the register names could not be substituted for longer ones in later instructions.
     
     The widening of signed values using the movsxx commands behave like you might expect.
+
+## Task 3: Experiment
+
+Try devising your own new functions that do arithmetic on variables of different types that need widening. Observe the assembly to see if you can understand what it is doing.
    
 
