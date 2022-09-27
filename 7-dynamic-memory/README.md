@@ -1,4 +1,4 @@
-# Using malloc to dynamically allocate an array
+# Dynamic Memory Allocation with `malloc`
 
 Now let's examine the code in the file called `dynamic_alloc.c`. In this code we will allocate the array dynamically on the 'heap' portion of memory set aside for our program (see class slides).
 
@@ -6,7 +6,7 @@ Note that we will be using a function called `malloc` (short for memory allocati
 
     #include <stdlib.h>  // malloc, atoi
 
-The only things that have changed in our code from the example in array_indexing.c are 
+The only things that have changed in our code from the example in `array_indexing.c` are 
 
 1. the way that we declare and create the memory for the array.
 2. the fact that we need to free up that heap space ourselves at the end of our program.
@@ -31,23 +31,23 @@ Step 2 is done when we no longer need the array:
 Forgetting to free your dynamically allocated memory is the source of many problems with C code, as the heap just keeps getting larger and the memory footprint of your program keeps getting bigger. The common term for this is that your program has a **memory leak**.
 
 
-## Try building and running the code
+## Build and Run the Code
 
-Build with make and run the executable called ./dynamic_alloc
+Build with make and run the executable called `./dynamic_alloc`
 
-Note that it results in the same output as the previous activity with static memory allocation. (activities_2-asm, folder 7-arrays)
+Note that it results in the same output as the previous activity with static memory allocation.
 
-## Providing information at runtime
+## Provide Command Line Arguments
 
 One way that we can truly make the size of our array dynamic is to provide its size on the command line each time we run it (changing it each time we run it).
 
 This is done in our main by changing its function declaration to look like this:
 
-    int main( int argc, char *argv[]) { ... }
+    int main(int argc, char *argv[]) { ... }
     
 When invoked on the terminal command line, `argc` will contain the number of items that were typed on the command line, separated by spaces, including the name of the program to be run (with the ./ in front if you typed it). The variable `argv`, which is an array of strings, contains each string that was typed on the command line. Thus, in our case `argv[0]` will be the string "./dynamic_alloc", and if we add a space followed by another number after that, that will signify the size of array that we want, and it will be in `argv[1]`.
 
-Study the first several lines of main() where we have read and interpreted the array_size value in `argv[1]`, if it had been supplied.
+Study the first several lines of `main()` where we have read and interpreted the `array_size` value in `argv[1]`, if it had been supplied.
 
 Now try running the code this way:
 
@@ -55,15 +55,8 @@ Now try running the code this way:
     
 Re-run it several times, changing the size of the array.
 
+## Look at the Assembly
 
-## Pretty wild assembly code
-
-An interesting exercise is to take a quick look at the assembly for this code, in particular in main where the memory allocation is taking place. You can do this by typing this at the command line:
-
-        cat dynamic_alloc.s
-
-Or you can use your editor to sync the remote server files to your local editor.
-
-Mind blown?
+An interesting exercise is to take a quick look at the assembly for this code, in particular in main where the memory allocation is taking place. What does it look like?
 
 
