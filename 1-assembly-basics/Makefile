@@ -17,11 +17,7 @@ F64 =-m64
 	objdump -d $* > $*.d
 	rm -f $*
 
-files:	sum.s	sum.d	sum swap.s 
-
-
-sum: sum.c
-	$(CC) $(CFLAGS) $(CINC) $(F64) sum.c -o sum
+files:	swap.s 
 
 clean:
-	rm -f *~ *.s *.d sum *.s *.64d sum64
+	rm -f *~ *.s *.d *.s *.64d
