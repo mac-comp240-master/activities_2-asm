@@ -35,7 +35,7 @@ This code is the set of 64-bit "assembly" version of the instructions correspond
 
 Note that `%rax` and other variables beginning with `%r` in x86-64 assembly refer to the registers on the machine.  We will see details of each of these later.
 
-As a way to understand the code, you will add comments to a copy of `swap.s`.  You should **do this by making a duplicate** of the `swap.s` file called `commented_swap.s`, copying the contents of `swap.s` into it, and editing that file. (You should use a copy so you don’t overwrite your work when using make.) Examine each line carefully and write comments to indicate what each line is doing. Concentrate on the consecutive move instructions, which are the ‘body’ of the code. You can refer to an example in your book in section 3.4.3, including the blue box about C pointers.
+As a way to understand the code, you will add comments to a copy of `swap.s`.  You should **do this by making a duplicate** of the `swap.s` file called `commented_swap.txt`, copying the contents of `swap.s` into it, and editing that file. (You should use a copy so you don’t overwrite your work when using make.) Examine each line carefully and write comments to indicate what each line is doing. Concentrate on the consecutive move instructions, which are the ‘body’ of the code. You can refer to an example in your book in section 3.4.3, including the blue box about C pointers.
 
 Be sure you have a reference and are familiar with what the names of the registers are in 64-bit assembly code (as produced by our compiler, gcc).  These are listed in Figure 3.2 of your textbook and are given in the slides for class. Figure 3.2 of your textbook also has a simpler example called exchange, will likely be helpful if you are confused about how this code works.
 
@@ -73,12 +73,7 @@ Open up the Makefile and look at it. There are many new things to notice about i
 
 * The -Og flag denotes that the compiler should use the lowest level of optimization (for us this means the assembly code will be easier to read). This is a minus sign, capital Oh letter,  and a lower case g. 
 
-* The -S flag creates assembly language code in files called [TARGET].s. (This is a minus and a capital S all by itself sent to gcc.) For this activity, the 2 'target' assembly code files we will examine are:
-
-    swap.s
-	sum.s
-
-We will review the files `swap.s` and `sum.s`.  First start with `swap.s`. As you view each of these assembly files, then you can view the corresponding .c file in the code editor. We have started with swap.c and swap.s available in two different panels. Make each visible so that you can compare them.
+* The -S flag creates assembly language code in files called [TARGET].s. (This is a minus and a capital S all by itself sent to gcc.) For this activity, the 'target' assembly code file we will examine is `swap.s`.
 
 ## References
 
