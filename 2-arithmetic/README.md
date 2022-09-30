@@ -2,7 +2,7 @@
 
 This activity corresponds to material in section 3.5 of your textbook. It may be useful to refer to the book as you work on this.
 
-Let’s examine arithmetic operations. We have given you the file called `arith.c`, its corresponding `arith.s` x86-64 assembly code, and the Makefile that created them. There is also already a copy of `arith.s` called `commented_arith.s`, in which you can make comments as you study the assembly code.
+Let’s examine arithmetic operations. We have given you the file called `arith.c`, its corresponding `arith.s` x86-64 assembly code, and the Makefile that created them. There is also already a copy of `arith.s` called `commented_arith.txt`, in which you can make comments as you study the assembly code.
 
 There are several functions in the file `arith.c`. Look at each of them and document the assembly code with comments. Be diligent and careful. Describe what each register is holding and which lines of assembly correspond to which lines of C code. The first comment you should make is to state which function parameter is in which register. Start your work by concentrating on the lea instructions.
 
