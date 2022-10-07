@@ -49,13 +49,13 @@ void proc( long a1,  long * a1p,
 }
 ```
 
-Now add your `arguments.64s` target assembly file to the Makefile on the ‘files’ line, like this:
+Now add your `arguments.s` target assembly file to the Makefile on the ‘files’ line, like this:
 
-    files:	incr.64s mstore-exe.64d recurse.64s arguments.64s
+    files:	incr.s mstore-exe.64d recurse.s arguments.s
 
 Note that you can simply type ‘make’ at the command line and the assembly for your new file should get made. This is because the target called ‘files’ is the first target in the makefile.
 
-Observe the assembly code in `arguments.64s` for this function called `proc`. Carefully trace where each of the arguments is stored by looking at the four add operations and their respective operands.
+Observe the assembly code in `arguments.s` for this function called `proc`. Carefully trace where each of the arguments is stored by looking at the four add operations and their respective operands.
 
 Now add in a call to this procedure from another function, like this:
 
@@ -71,7 +71,7 @@ void call_proc() {
 }
 ```
 
-After making the `arguments.64s` file, copy it so that you can make some comments in it. The first 6 arguments from a caller to the called procedure are saved as follows:
+After making the `arguments.s` file, copy it so that you can make some comments in it. The first 6 arguments from a caller to the called procedure are saved as follows:
 
 ![](.//img/07_first6args.png)
 
