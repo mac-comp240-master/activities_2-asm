@@ -112,7 +112,7 @@ As an alternative to copying the assembly file to make comments, you could copy 
 
 The Makefile has a way to also build the file 2D_array.c. Open it and remove the # from the files directive line and save the Makefile. When you make, it will be able to compile this 2D array example.
 
-Study the file `2D_array.c`. Your main task is to update the function called `set_diag_p`. As you examine this function, make sure you are very clear about what the values M and N represent. Make a comment at the beginning of this function to state what M and N are, so that you can
+Study the file `2D_array.c`. Your main task is to update the function called `set_diag_p`. As you examine this function, make sure you are very clear about what the values M and N represent. Make a comment at the beginning of this function to state what M and N are to help you keep track!
 
 Notice that this line is to show you how the very last element of the array can be accessed using pointer arithmetic:
 
